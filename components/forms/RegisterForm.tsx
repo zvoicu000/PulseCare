@@ -15,10 +15,11 @@ import { UserFormValidation } from "@/lib/validation"
 import { createUser } from "@/lib/actions/patient.actions"
 import { FormFieldType } from "./PatientForm"
 import { RadioGroup } from "@radix-ui/react-radio-group"
-import { GenderOptions } from "@/constants"
+import { Doctors, GenderOptions } from "@/constants"
 import { RadioGroupItem } from "../ui/radio-group"
 import { Label } from "../ui/label"
-
+import { SelectItem } from "../ui/select"
+import Image from "next/image"
 
 
 
@@ -129,18 +130,138 @@ const RegisterForm=({user}:{user:User}) =>{
         />
 
         </div>  
-        <div className="flex flex-col gap-6 xl:flex-row">
 
+        
+
+        <div className="flex flex-col gap-6 xl:flex-row">
+        <CustomFormField
+        fieldType={FormFieldType.INPUT}
+        control={form.control}
+        name="adress"
+        label="Adress"
+        placeholder="14th Street, New York"
+        />
+
+        <CustomFormField
+        fieldType={FormFieldType.INPUT}
+        control={form.control}
+        name="occupation"
+        label="Occupation"
+        placeholder="Software Engineer"
+        />
 
         </div>  
         <div className="flex flex-col gap-6 xl:flex-row">
+        <CustomFormField
+        fieldType={FormFieldType.INPUT}
+        control={form.control}
+        name="emergencyContactName"
+        label="Emergency contact name"
+        placeholder="Guardian's name"
+        />
+        <CustomFormField
+        fieldType={FormFieldType.PHONE_INPUT}
+        control={form.control}
+        name="emergencyContactNumber"
+        label="Emergency contact number"
+        placeholder="(555) 123-4567"
+        
+        />
 
+        </div> 
 
-        </div>  
+          <section className="space-y-6">
+            <div className="mb-9 space-y-1">
+            <h2 className="sub-header">Medical Information.</h2>
+            </div>
+        </section>
+
+        <CustomFormField
+        fieldType={FormFieldType.SELECT}
+        control={form.control}
+        name="primaryPhysician"
+        label="Primary Physician"
+        placeholder="Select a physician"
+        
+        >
+          {Doctors.map((doctor)=>(
+
+            <SelectItem key={doctor.name} value={doctor.name}>
+              <div className="flex cursor-pointer items-center gap-2">
+                  <Image src={doctor.image}
+                  width={32}
+                  height={32}
+                  alt={doctor.name}
+                  className="rounded-full border border-dark-500"
+                  />
+                  <p>{doctor.name}</p>
+              </div>
+            </SelectItem>
+          ))}
+
+        </CustomFormField>
+
         <div className="flex flex-col gap-6 xl:flex-row">
+        <CustomFormField
+        fieldType={FormFieldType.INPUT}
+        control={form.control}
+        name="insuranceProvider"
+        label="Insurance provider"
+        placeholder="BlueCross BlueShield"
+        />
 
+        <CustomFormField
+        fieldType={FormFieldType.INPUT}
+        control={form.control}
+        name="insurancePolicyNumber"
+        label="Insurance policy number"
+        placeholder="ABC123456789"
+        />
 
-        </div>  
+        </div>
+        <div className="flex flex-col gap-6 xl:flex-row">
+        <CustomFormField
+        fieldType={FormFieldType.TEXTAREA}
+        control={form.control}
+        name="allergies"
+        label="Allergies (if any)"
+        placeholder="Peanuts, Penicillin, Pollen"
+        />
+
+        <CustomFormField
+        fieldType={FormFieldType.TEXTAREA}
+        control={form.control}
+        name="currentMedication"
+        label="Current medication (if any)"
+        placeholder="Ibuprofen 200mg, Paracetamol 500mg"
+        />
+
+        </div>    
+
+        <div className="flex flex-col gap-6 xl:flex-row">
+        <CustomFormField
+        fieldType={FormFieldType.TEXTAREA}
+        control={form.control}
+        name="familyMedicalHistory"
+        label="Family medical history"
+        placeholder="Mother had brain cancer, Father had heart disease"
+        />
+
+        <CustomFormField
+        fieldType={FormFieldType.TEXTAREA}
+        control={form.control}
+        name="pastMedicalHistory"
+        label="Past Medical History"
+        placeholder="Appendectomy, Tonsillectomy"
+        />
+
+        </div>   
+
+        <section className="space-y-6">
+            <div className="mb-9 space-y-1">
+            <h2 className="sub-header">Identification and Verification</h2>
+            </div>
+        </section> 
 
         <SubmitButton isLoading={isLoading}>
           Get Started
@@ -152,4 +273,4 @@ const RegisterForm=({user}:{user:User}) =>{
 
 export default RegisterForm
 
-//1:37:00
+//2:00
