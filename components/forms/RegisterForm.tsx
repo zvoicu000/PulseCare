@@ -59,8 +59,10 @@ const RegisterForm=({user}:{user:User}) =>{
         birthDate: new Date(values.birthDate),
         identificationDocument: formData,
       }
+      //@ts-ignore
       const patient= await registerPatient(patientData)
-      if(patient) router.push(`/patients/${user.$id}/new-appointment`)
+       if(patient) router.push(`/patients/${user.$id}/new-appointment`)
+        console.log("User ID:", user.$id);
     } catch (error) {
       console.log(error)
     }
@@ -150,8 +152,8 @@ const RegisterForm=({user}:{user:User}) =>{
         <CustomFormField
         fieldType={FormFieldType.INPUT}
         control={form.control}
-        name="adress"
-        label="Adress"
+        name="address"
+        label="Address"
         placeholder="14th Street, New York"
         />
 
@@ -349,4 +351,3 @@ const RegisterForm=({user}:{user:User}) =>{
 
 export default RegisterForm
 
-//2:26

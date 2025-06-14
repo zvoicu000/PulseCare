@@ -2,12 +2,14 @@
 import { BUCKET_ID, DATABASE_ID, databases, ENDPOINT, PATIENT_COLLECTION_ID, PROJECT_ID, storage, users } from "../appwrite.config"
 import { ID,Query } from "node-appwrite"
 import { parseStringify } from "../utils";
-import {InputFile} from "node-appwrite/file"
+import { Client, Storage, InputFile } from "node-appwrite";
 
 
 export const createUser= async (user: CreateUserParams)=>{
     try {
-        const newUser= await users.create(ID.unique(),user.email,
+        const newUser= await users.create(
+        ID.unique(),
+        user.email,
         user.phone,
         undefined,
         user.name);
