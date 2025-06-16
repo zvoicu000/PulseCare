@@ -22,7 +22,7 @@ export default async function NewAppointment({params:{userId}}:SearchParamProps)
           type="create"
           userId={userId} 
           patientId={patient.$id}/>
-          //gotta fix this and idk how
+          
           
           <p className="justify-items-end text-dark-600 xl:text-left">&copy; 2024 CarePulse</p>
           
@@ -38,3 +38,5 @@ export default async function NewAppointment({params:{userId}}:SearchParamProps)
     </div>
   )
 }
+
+//2:46 ramas

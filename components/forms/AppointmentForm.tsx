@@ -104,4 +104,3 @@ const AppointmentForm=(
 
 export default AppointmentForm
 
-//60
