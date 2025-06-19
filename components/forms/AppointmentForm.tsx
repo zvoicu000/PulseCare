@@ -60,6 +60,8 @@ const AppointmentForm=(
     }
     try {
       if (type==='create' && patientId){
+
+
         const appointmentData ={
           userId,
           patient: patientId,
@@ -72,7 +74,7 @@ const AppointmentForm=(
         const appointment = await CreateAppointment(appointmentData)
         if(appointment){
           form.reset();
-          router.push(`/patients/${userId}/new-appointment/success?appointmentId=${appointment.id}`)
+          router.push(`/patients/${userId}/new-appointment/success?appointmentId=${appointment.$id}`)
         }
       }
       }
