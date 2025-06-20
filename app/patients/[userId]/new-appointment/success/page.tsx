@@ -3,6 +3,8 @@ import React from 'react'
 import Image from 'next/image'
 import { getAppointment } from '@/lib/actions/appointment.actions'
 import { Doctors } from '@/constants'
+import { formatDateTime } from '@/lib/utils'
+import { Button } from '@/components/ui/button'
 
 
 const Success = async ({params:{userId}, searchParams}:SearchParamProps) => {
@@ -43,8 +45,27 @@ const Success = async ({params:{userId}, searchParams}:SearchParamProps) => {
                     height={100}
                     className='size-6'
                     />
+                    <p className='whitespace-nowrap'>Dr. {doctor?.name}</p>
+                </div>
+                <div className='flex gap-2'>
+                    <Image
+                        src="/assets/icons/calendar.svg"
+                        height={24}
+                        width={24}
+                        alt='calendar'
+                    />
+                    <p>{formatDateTime(appointment.schedule).dateTime}</p>
                 </div>
             </section>
+
+            <Button variant="outline" className="shadow-primary-btn" asChild>
+                <Link href={`/patients/${userId}/new-appointment`}>
+                    New Appointment
+                </Link>
+
+            </Button>
+
+            <p className='copyright'>&copy; 2024 CarePulse</p>
         </div>
     </div>
   )
