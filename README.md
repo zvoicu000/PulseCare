@@ -4,7 +4,7 @@
 PulseCare is a full-featured hospital management system designed to streamline operations for healthcare institutions. Built with a modern tech stack, it provides functionalities such as:
 
 ## 🚀 Live Demo  
-Check out the live version here: [PulseCare](pulse-care-3wktepua9-zvoicu000s-projects.vercel.app)
+Check out the live version here: [PulseCare](pulse-care-rlbi8euaj-zvoicu000s-projects.vercel.app)
 
 ---
 
