@@ -2,6 +2,8 @@
 const config = {
   plugins: {
     tailwindcss: {},
+    'postcss-nested': {}, // Must be after tailwindcss
+    autoprefixer: {}, // Optional but recommended
   },
 };
 
