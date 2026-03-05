@@ -1,7 +1,7 @@
 # PulseCare 
 🏥 A modern hospital management application built with Next.js, React, Appwrite, and Twilio.
 
-PulseCare is a full-featured hospital management system designed to streamline operations for healthcare institutions. Built with a modern tech stack, it provides functionalities such as:
+PulseCare is a full-featured hospital management system designed to streamline operations for healthcare institutions.
 
 ## 🚀 Live Demo  
 Check out the live version here: <a href="https://pulse-care-theta.vercel.app" target="_blank" rel="noopener noreferrer">PulseCare</a>
